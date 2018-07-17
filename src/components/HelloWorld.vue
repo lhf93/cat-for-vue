@@ -7,7 +7,7 @@
       <li>
         <a
           href="https://vuejs.org"
-          target="_blank"
+          target="_blank" 
         >
           Core Docs
         </a>
