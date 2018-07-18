@@ -11,12 +11,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.4.4",
-<<<<<<< HEAD
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-=======
->>>>>>> 5bae3ee285ca3df92f027b3fa5d6dd4dc7a1a639
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
@@ -27,7 +25,6 @@
     "babel-plugin-component": "^1.1.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
-    "babel-plugin-component": "^1.1.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
