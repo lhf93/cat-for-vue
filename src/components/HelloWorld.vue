@@ -1,86 +1,32 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
     <h3>cat for vue</h3>
+    <h4>①按钮组件展示</h4>
     <ul>
       <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
+       <BaseButton v-on:click="show" text="我是普通按钮"></BaseButton>
       </li>
       <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
+         <BaseButton text="我是大个按钮" :big = 'true'></BaseButton>
       </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
+       <li>
+         <BaseButton text="我是小个按钮" :small = 'true'></BaseButton>
       </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
+       <li>
+         <BaseButton text="我是禁用按钮" :disabled = 'true'></BaseButton>
       </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
+       <li>
+         <BaseButton text="我是无圆角" :notRadius = 'true'></BaseButton>
+      </li>
+       <li>
+         <BaseButton text="我是浮动按钮" :fLeft = 'true'></BaseButton>
+      </li>
+       <li>
+         <BaseButton text="我是空心小按钮" :small = 'true' :hollow = 'true'></BaseButton>
       </li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <h4>②弹窗组件展示</h4>
   </div>
 </template>
 
@@ -90,6 +36,11 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    show: function () {
+      alert(123)
     }
   }
 }
