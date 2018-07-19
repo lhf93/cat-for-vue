@@ -12,11 +12,8 @@
   },
   "dependencies": {
     "element-ui": "^2.4.4",
-<<<<<<< HEAD
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-=======
->>>>>>> 5bae3ee285ca3df92f027b3fa5d6dd4dc7a1a639
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
