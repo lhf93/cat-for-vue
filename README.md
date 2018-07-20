@@ -32,3 +32,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     <BaseButton text="我是空心小按钮" :small = 'true' :hollow = 'true'></BaseButton>
 
 ```
+## 公共组件BaseAlertMsg的调用方法
+``` bash
+    <ul>
+      <li>
+        <BaseButton text='调出弹框(confirm)' @click="openAlert1"></BaseButton>
+        <BaseAlertMsg type="confirm" :cancelText="cancelText" :confirmText="confirmText" @confirm="clickConfirm()" v-on:cancel="clickCancel()" :title="title" :content="content" v-model="showAlert1"></BaseAlertMsg>
+      </li>
+      <li>
+        <BaseButton text='调出弹框(非confirm)' @click="openAlert2"></BaseButton>
+        <BaseAlertMsg :confirmText="confirmText" @confirm="know()" :title="title" :content="content" v-model="showAlert2"></BaseAlertMsg>
+      </li>
+    </ul>
+```

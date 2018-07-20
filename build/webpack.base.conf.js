@@ -36,7 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'styles': resolve('src/assets/styles'),
+      // 'styles': resolve('src/assets/styles'),
     }
   },
   module: {
@@ -83,7 +83,11 @@ module.exports = {
                 '/node_modules/element-ui/lib/'   //增加此项  
         ],  
         　　　　loader: 'style-loader!css-loader'  
-      },  
+      },
+      {
+        test:/\.less$/,
+        loader:'style-loader!css-loader!less-loader'
+      }  
     ]
   },
   node: {

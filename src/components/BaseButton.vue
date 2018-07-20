@@ -29,6 +29,7 @@ export default {
 </script>
 <style>
       .cat-btn{
+        display: inline-block;
         color:#fff;
         background-color: #fc8d59;
         padding:12px 30px;
