@@ -28,17 +28,22 @@
           </div>
         </li>
       </ul>
+      <Comment></Comment>
   </div>
 </template>
 
 <script>
+import Comment from 'components/Comment'
+
 export default {
   data () {
     return {
     }
   },
 
-  components: {},
+  components: {
+    Comment
+  },
 
   methods: {}
 }
