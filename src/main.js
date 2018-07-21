@@ -9,6 +9,8 @@ import camelCase from 'lodash/camelCase'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'styles/reset.css'
+import 'assets/js/fit.js'
+// import 'styles/reset.css'
 // import 'styles/iconfont.css'
 
 Vue.use(ElementUI)

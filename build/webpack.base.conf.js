@@ -77,18 +77,6 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      {  
-        test: /\.css$/,  
-        include: [  
-                /src/,//表示在src目录下的css需要编译  
-                '/node_modules/element-ui/lib/'   //增加此项  
-        ],  
-        　　　　loader: 'style-loader!css-loader'  
-      },
-      {
-        test:/\.less$/,
-        loader:'style-loader!css-loader!less-loader'
-      }  
     ]
   },
   node: {
