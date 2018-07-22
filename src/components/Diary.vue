@@ -28,19 +28,47 @@
           </div>
         </li>
       </ul>
+      <Tab v-model="activeKey">
+        <TabItem name="1" label="我和喵星人的故事">
+          <div style="padding-top: 30px">
+            我和喵星人的故事
+            <Comment @commentSubmit="getComment"></Comment>
+            <CommentItem @reply="getReply"></CommentItem>
+          </div>
+        </TabItem>
+        <TabItem name="2" label="为喵星人寻找主人">为喵星人寻找主人</TabItem>
+      </Tab>
   </div>
 </template>
 
 <script>
+import { Comment, CommentItem } from '../base/Comment'
+import Tab from '../base/Tab/Tab'
+import TabItem from '../base/Tab/TabItem'
+
 export default {
   data () {
     return {
+      activeKey: '1'
     }
   },
 
-  components: {},
+  components: {
+    Comment,
+    CommentItem,
+    Tab,
+    TabItem
+  },
 
-  methods: {}
+  methods: {
+    getReply (id, name) {
+
+    },
+
+    getComment (msg) {
+
+    }
+  }
 }
 
 </script>

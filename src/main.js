@@ -1,16 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-
-import upperFirst from 'lodash/upperFirst'
-import camelCase from 'lodash/camelCase'
+// import { input } from 'element-ui'
 import App from './App'
 import router from './router'
+import upperFirst from 'lodash/upperFirst'
+import camelCase from 'lodash/camelCase'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './assets/styles/reset.css'
+// import 'assets/js/fit.js'
 // import 'styles/reset.css'
 // import 'styles/iconfont.css'
-// import './assets/styles/iconfont.css'
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
@@ -43,7 +45,6 @@ requireComponent.keys().forEach(fileName => {
     componentConfig.default || componentConfig
   )
 })
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

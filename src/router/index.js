@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Publish from '@/pages/Publish/Publish'
-
 import HelloWorld from '@/components/HelloWorld'
 import Diary from '@/components/Diary'
 import DiaryDetails from '@/components/DiaryDetails'
 // import Publish from '@/components/Publish'
+import Publish from '@/components/Publish'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
