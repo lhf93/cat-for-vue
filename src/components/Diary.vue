@@ -28,12 +28,15 @@
           </div>
         </li>
       </ul>
-      <Comment></Comment>
+      <Comment @commentSubmit="getComment"></Comment>
+      <CommentItem @reply="getReply"></CommentItem>
   </div>
 </template>
 
 <script>
-import Comment from 'components/Comment'
+import { Comment, CommentItem } from '../base/Comment'
+import Tab from '../base/Tab/Tab'
+import TabItem from '../base/Tab/TabItem'
 
 export default {
   data () {
@@ -42,10 +45,19 @@ export default {
   },
 
   components: {
-    Comment
+    Comment,
+    CommentItem
   },
 
-  methods: {}
+  methods: {
+    getReply (id, name) {
+
+    },
+
+    getComment (msg) {
+
+    }
+  }
 }
 
 </script>

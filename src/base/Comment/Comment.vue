@@ -1,8 +1,8 @@
-<!--  -->
+<!-- 评论 -->
 <template>
   <div class="comment-view">
     <div class="avatar-wrapper">
-      <img src="../../build/logo.png" alt="XX的头像">
+      <img :src="avatar" alt="XX的头像">
     </div>
     <div class="commet-wrapper">
       <input type="text" placeholder="说点什么..." v-model="text">
@@ -14,8 +14,22 @@
 <script>
 import Button from 'components/BaseButton'
 
+/**
+ * 评论组件
+ * 属性：avatar。-》评论人的头像
+ * 事件：commentSubmit(msg)。-》用户点击评论出发的事件
+ * msg: 用户评论内容
+ */
+
 export default {
   name: 'Comment',
+
+  props: {
+    avatar: {
+      type: String,
+      default: require('../../../build/logo.png')
+    }
+  },
 
   data () {
     return {
