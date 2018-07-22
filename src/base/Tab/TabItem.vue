@@ -10,7 +10,7 @@ export default {
   data () {
     return {
       isShow: true
-    };
+    }
   },
 
   components: {},
@@ -23,6 +23,6 @@ export default {
 </script>
 <style lang='less' scoped>
   .jr-tab-pannel {
-    height: 100%;
+    height: 100%
   }
 </style>
