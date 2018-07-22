@@ -12,32 +12,33 @@
       >
       点击添加图片
     </label>
-    <p class="tips" v-show="showTips">还未上传图片！</p>
+    <p v-html="tip" class="tips" v-show="showTips"></p>
     <ul class="file-list">
       <li
         class="data-list"
-        v-for="(item,index) of imgList"
-        :key="index"
-        @mouseover="item.showBtn=true"
-        @mouseout="item.showBtn=false">
+        v-for="item of imgList"
+        :key="item.fileName"
+        >
         <img
           class="upload-image"
           :src="item.imgUrl"
-          ref="Img"
           @click="imgPreview"
         />
-        <div
-          v-show="item.showBtn"
-          class="delete-btn"
-          @click="deleteImg(item)">
-          ✖
-        </div>
       </li>
     </ul>
   </div>
-  <div class="preview">
+  <div
+    class="preview"
+    @mouseover="showImg==true?showBtn=true:showBtn=false"
+    @mouseout="showImg==true?showBtn=false:showBtn=false">
     <p v-show="showText">点击图片可在此处预览</p>
-    <img v-show="showImg" :src="previewImgURL">
+      <img v-show="showImg" :src="previewImgURL">
+    <img
+      v-show="showBtn"
+      class="delete-btn"
+      @click="deleteImg"
+      src="../assets/icon-d.png"
+    />
   </div>
 </div>
 </template>
@@ -49,7 +50,9 @@ export default {
       showText: true,
       showImg: false,
       showTips: true,
+      showBtn: false,
       previewImgURL: '',
+      tip: '还未上传图片!',
       imgList: [
       //   {
       //    imgUrl: 'static/images/1119774901.png'
@@ -79,6 +82,7 @@ export default {
       this.showText = false
       this.previewImgURL = event.target.src
       this.showImg = true
+      this.showTips = false
     },
     handleFiles () {
       let files = this.$refs.inputer.files
@@ -87,9 +91,13 @@ export default {
       let listLen = this.imgList.length
       if (listLen === 0) {
         for (let i = 0; i < len; i++) {
+          if (this.imgList.length >= 9) {
+            this.tip = '最多只能上传9张图片!'
+            this.showTips = true
+            break
+          }
           let obj = {}
           obj.fileName = files[i].name
-          obj.showBtn = false
           // 看支持不支持FileReader
           if (!files.length || !URL.createObjectURL) return
           // 创建URL，并设置图片的源为表示文件的URL对象
@@ -99,6 +107,11 @@ export default {
         this.showTips = false
       } else {
         for (let i = 0; i < len; i++) {
+          if (this.imgList.length >= 9) {
+            this.tip = '最多只能上传9张图片!'
+            this.showTips = true
+            break
+          }
           let count = 0
           for (let j = 0; j < listLen; j++) {
             if (this.imgList[j].fileName === files[i].name) {
@@ -108,7 +121,6 @@ export default {
           if (count === 0) {
             let obj = {}
             obj.fileName = files[i].name
-            obj.showBtn = false
             // 看支持不支持FileReader
             if (!files.length || !URL.createObjectURL) return
             // 创建URL，并设置图片的源为表示文件的URL对象
@@ -118,13 +130,16 @@ export default {
         }
       }
     },
-    deleteImg (item) {
-      this.imgList.splice(item, 1)
-      if (this.previewImgURL === item.imgUrl) {
-        this.showImg = false
-        this.showText = true
+    deleteImg () {
+      for (let i = 0; i < this.imgList.length; i++) {
+        if (this.imgList[i].imgUrl === this.previewImgURL) {
+          this.imgList.splice(i, 1)
+          this.showImg = false
+          this.showText = true
+        }
       }
       if (this.imgList.length === 0) {
+        this.tip = '还未上传图片!'
         this.showTips = true
       }
     }
@@ -147,7 +162,7 @@ export default {
       right: 0
       top: 0
       margin: 0
-      font-size: 24px
+      font-size: 20px
     .file-elem
       display: none
     .file-select
@@ -172,10 +187,6 @@ export default {
       left: 75px
       bottom: 32px
       padding-left: 0
-      overflow-x: hidden
-      overflow-y: scroll
-      ::-webkit-scrollbar
-        display: none;
       .data-list
         width: 80px
         height: 80px
@@ -183,35 +194,30 @@ export default {
         display: inline-block
         position: relative
       .upload-image
-        width: 100%
-        height: 100%
+        width: 80px
+        height: 80px
+        object-fit: cover
         cursor: pointer
-      .delete-btn
-        position: absolute
-        right: 0
-        top: 0
-        width: 20px
-        height 20px
-        line-height: 20px
-        color: #ccc
-        font-size: 10px
-        cursor: pointer
-        text-align: center
-        background-color: rgba(147, 147, 147, 0.8)
   .preview
     width: 400px
     height: 400px
     position: absolute
     right: 22px
     top: 0
-    bottom: 0
     border-radius: 4px
     text-align: center
     line-height: 400px
   .preview p
     font-size: 32px
   .preview img
-    width: 100%
-    height: 100%
-    margin: 0 auto
+    width: 400px
+    height: 400px
+    object-fit: cover
+  .preview .delete-btn
+        position: absolute
+        right: 0
+        top: 376px
+        width: 24px
+        height 24px
+        cursor: pointer
 </style>

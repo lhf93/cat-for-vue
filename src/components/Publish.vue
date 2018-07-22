@@ -3,9 +3,10 @@
     <a class="avatar" href="#">
     <img src="" alt="">
     </a>
-  <form class="publish" action="#" method="post">
+  <form class="publish" v-on:submit.prevent="popUp">
     <textarea
       class="text"
+      maxlength="500"
       placeholder="请输入内容"
       v-model="textarea">
     </textarea>
@@ -29,6 +30,11 @@ export default {
   data () {
     return {
       textarea: ''
+    }
+  },
+  methods: {
+    popUp() {
+      alert('发布成功！')
     }
   }
 }
