@@ -11,12 +11,6 @@ export default {
     return {
       isShow: true
     }
-  },
-
-  components: {},
-
-  methods: {
-    
   }
 }
 

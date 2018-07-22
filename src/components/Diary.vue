@@ -28,8 +28,16 @@
           </div>
         </li>
       </ul>
-      <Comment @commentSubmit="getComment"></Comment>
-      <CommentItem @reply="getReply"></CommentItem>
+      <Tab v-model="activeKey">
+        <TabItem name="1" label="我和喵星人的故事">
+          <div style="padding-top: 30px">
+            我和喵星人的故事
+            <Comment @commentSubmit="getComment"></Comment>
+            <CommentItem @reply="getReply"></CommentItem>
+          </div>
+        </TabItem>
+        <TabItem name="2" label="为喵星人寻找主人">为喵星人寻找主人</TabItem>
+      </Tab>
   </div>
 </template>
 
@@ -41,12 +49,15 @@ import TabItem from '../base/Tab/TabItem'
 export default {
   data () {
     return {
+      activeKey: '1'
     }
   },
 
   components: {
     Comment,
-    CommentItem
+    CommentItem,
+    Tab,
+    TabItem
   },
 
   methods: {
