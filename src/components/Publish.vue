@@ -33,7 +33,7 @@ export default {
     }
   },
   methods: {
-    popUp() {
+    popUp () {
       alert('发布成功！')
     }
   }

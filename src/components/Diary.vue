@@ -32,12 +32,25 @@
         <TabItem name="1" label="我和喵星人的故事">
           <div style="padding-top: 30px">
             我和喵星人的故事
+            <div class="icons">
+              <span
+                class="iconfont collect"
+                :class="isCollect?'icon-collection':'icon-collection_fill'"
+                @click="changeCollectState">
+              </span>
+              <span v-html="collectNum"></span>
+              <comment-icon class="comment" @change="clickCommentIcon"></comment-icon>
+              <span class="comment-span" v-html="commentNum"></span>
+              <like-icon class="like" @change="changeLikeState"></like-icon>
+              <span v-html="likeNum"></span>
+            </div>
             <Comment @commentSubmit="getComment"></Comment>
             <CommentItem @reply="getReply"></CommentItem>
           </div>
         </TabItem>
         <TabItem name="2" label="为喵星人寻找主人">为喵星人寻找主人</TabItem>
       </Tab>
+      <show-pic></show-pic>
   </div>
 </template>
 
@@ -45,11 +58,18 @@
 import { Comment, CommentItem } from '../base/Comment'
 import Tab from '../base/Tab/Tab'
 import TabItem from '../base/Tab/TabItem'
+import LikeIcon from './LikeIcon'
+import CommentIcon from './CommentIcon'
+import ShowPic from './ShowPic'
 
 export default {
   data () {
     return {
-      activeKey: '1'
+      activeKey: '1',
+      isCollect: 'true',
+      collectNum: 53,
+      likeNum: 53,
+      commentNum: 53
     }
   },
 
@@ -57,7 +77,10 @@ export default {
     Comment,
     CommentItem,
     Tab,
-    TabItem
+    TabItem,
+    LikeIcon,
+    CommentIcon,
+    ShowPic
   },
 
   methods: {
@@ -67,6 +90,16 @@ export default {
 
     getComment (msg) {
 
+    },
+    changeLikeState (isLike) {
+      !isLike ? this.likeNum += 1 : this.likeNum -= 1
+    },
+    clickCommentIcon () {
+      this.commentNum += 1
+    },
+    changeCollectState () {
+      this.isCollect = !this.isCollect
+      !this.isCollect ? this.collectNum += 1 : this.collectNum -= 1
     }
   }
 }
@@ -133,5 +166,37 @@ a{
   width: 100%;
   height: 180px;
   margin-top: 24px;
+}
+.icon-collection,
+.icon-collection_fill {
+  cursor: pointer;
+}
+.icon-collection {
+  color: #d3d3d3;
+  font-size: 30px;
+}
+.icon-collection_fill {
+  color: #fee090;
+  font-size: 30px;
+}
+.icons {
+  font-size: 0px;
+  height: 20px;
+  line-height: 20px;
+}
+.icons span {
+  font-size: 12px;
+  margin-left: 3px;
+}
+.icons .collect,
+.icons .comment,
+.icons .like {
+  font-size: 20px;
+}
+.icons .comment {
+  margin-left: 65px;
+}
+.icons .comment-span {
+  margin-right: 65px;
 }
 </style>

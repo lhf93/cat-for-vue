@@ -1,0 +1,33 @@
+
+@font-face {font-family: "iconfont";
+  src: url('./iconfont/iconfont.eot?t=1532327101592'); /* IE9*/
+  src: url('./iconfont/iconfont.eot?t=1532327101592#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('./iconfont/iconfont.ttf?t=1532327101592') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./iconfont/iconfont.svg?t=1532327101592#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-collection_fill:before { content: "\e6ea"; }
+
+.icon-collection:before { content: "\e6eb"; }
+
+.icon-coordinates:before { content: "\e6ec"; }
+
+.icon-like_fill:before { content: "\e707"; }
+
+.icon-like:before { content: "\e708"; }
+
+.icon-message:before { content: "\e70c"; }
+
+.icon-trash:before { content: "\e738"; }
+
+.icon-footprint:before { content: "\e604"; }
+
