@@ -29,13 +29,16 @@ export default new Router({
     {
       path: '/diary/:id',
       name: 'Diary',
-      component: Diary
+      component: Diary,
+      children: [
+        {
+          path: '/diary/:id/detail/:id',
+          name: 'DiaryDetail',
+          component: DiaryDetails
+        }
+      ]
     },
-    {
-      path: '/detail/:id',
-      name: 'DiaryDetail',
-      component: DiaryDetails
-    },
+
     {
       path: '/publish',
       name: 'Publish',

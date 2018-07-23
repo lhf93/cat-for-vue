@@ -8,6 +8,7 @@
         </TabItem>
       </Tab>
       <DiaryList ></DiaryList>
+      <router-view></router-view>
   </div>
 </template>
 
