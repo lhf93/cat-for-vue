@@ -6,36 +6,34 @@
         <TabItem name="2" label="为喵星人寻找主人"></TabItem>
       </Tab>
       <router-view></router-view>
-
-
-      <Comment @commentSubmit="getComment"></Comment>
-      <CommentItem @reply="getReply"></CommentItem>
   </div>
 </template>
 
 <script>
-import { Comment, CommentItem } from '../base/Comment'
 import Tab from '../base/Tab/Tab'
 import TabItem from '../base/Tab/TabItem'
-import DiaryList from 'components/DiaryList'
-import DiaryDetail from 'components/DiaryDetail'
+import LikeIcon from './LikeIcon'
+import CommentIcon from './CommentIcon'
+import ShowPic from './ShowPic'
 
 export default {
   data () {
     return {
-      activeKey: '1'
+      activeKey: '1',
+      isCollect: 'true',
+      collectNum: 53,
+      likeNum: 53,
+      commentNum: 53
     }
   },
 
   components: {
-    Comment,
-    CommentItem,
     Tab,
     TabItem,
-    DiaryList,
-    DiaryDetail
+    LikeIcon,
+    CommentIcon,
+    ShowPic
   },
-
   methods: {
     tabChanged (key) {
       if (+key === 1) {
@@ -55,6 +53,21 @@ export default {
 
     getComment (msg) {
 
+    },
+    changeLikeState (isLike) {
+      !isLike ? this.likeNum += 1 : this.likeNum -= 1
+    },
+    clickCommentIcon () {
+      this.commentNum += 1
+    },
+    changeCollectState () {
+      this.isCollect = !this.isCollect
+      !this.isCollect ? this.collectNum += 1 : this.collectNum -= 1
+    },
+    enterDirayDetail () {
+      this.$router.push({
+        path: '/diaryDetails'
+      })
     }
   }
 }
@@ -80,24 +93,28 @@ a{
   padding-bottom:30px;
   border-bottom:1px  #000 solid;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .listContL{
-  display: block;
-  text-align: left;
-  width:75%;
+  margin-top: 24px;
+  display: flex;
+  /* text-align: left */
+  /* width:75%; */
   position: relative;
 }
 .contTit{
   font-size: 20px;
 }
 .cont{
+  position: relative;
   text-indent: 28px;
-  margin-top:28px;
+  /* margin-top:28px; */
   font-size: 14px;
   line-height: 20px;
 }
 .lookMore{
+  cursor: pointer;
   color: #fba37e;
   font-size: 12px;
   position: absolute;
@@ -105,11 +122,11 @@ a{
   right: 0;
 }
 .listContR{
-  height:220px;
+  /* height:220px; */
   overflow: hidden;
   border-radius: 5px;
-  width:18%;
-  min-width: 180px;
+  /* width:18%; */
+  /* min-width: 180px; */
 }
 .time{
   display: block;
@@ -120,6 +137,38 @@ a{
 .listContR>img{
   width: 100%;
   height: 180px;
-  margin-top: 24px;
+  /* margin-top: 24px; */
+}
+.icon-collection,
+.icon-collection_fill {
+  cursor: pointer;
+}
+.icon-collection {
+  color: #d3d3d3;
+  font-size: 30px;
+}
+.icon-collection_fill {
+  color: #fee090;
+  font-size: 30px;
+}
+.icons {
+  font-size: 0px;
+  height: 20px;
+  line-height: 20px;
+}
+.icons span {
+  font-size: 12px;
+  margin-left: 3px;
+}
+.icons .collect,
+.icons .comment,
+.icons .like {
+  font-size: 20px;
+}
+.icons .comment {
+  margin-left: 65px;
+}
+.icons .comment-span {
+  margin-right: 65px;
 }
 </style>

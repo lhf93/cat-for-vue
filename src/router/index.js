@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Diary from '@/components/Diary'
+import DiaryDetails from '@/components/DiaryDetails'
+// import Publish from '@/components/Publish'
 import Publish from '@/components/Publish'
 
 const DiaryList = (resolve) => {
@@ -40,6 +42,11 @@ export default new Router({
           component: DiaryDetail
         }
       ]
+    },
+    {
+      path: '/diaryDetails',
+      name: 'DiaryDetails',
+      component: DiaryDetails
     },
     {
       path: '/publish',
