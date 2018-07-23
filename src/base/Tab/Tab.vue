@@ -187,7 +187,7 @@ export default {
               position absolute
               left 0
               right 0
-              top 10px
+              top 5px
               // bottom -100%
               margin auto
               height 0
