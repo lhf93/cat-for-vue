@@ -2,18 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Diary from '@/components/Diary'
-import DiaryDetails from '@/components/DiaryDetails'
+// import DiaryDetails from '@/components/DiaryDetails'
 // import Publish from '@/components/Publish'
 import Publish from '@/components/Publish'
 
-const DiaryList = (resolve) => {
-  import('@/components/DiaryList').then((module) => {
-    resolve(module)
-  })
-}
+// const DiaryList = (resolve) => {
+//   import('@/components/DiaryList').then((module) => {
+//     resolve(module)
+//   })
+// }
 
-const DiaryDetail = (resolve) => {
-  import('@/components/DiaryDetail').then((module) => {
+const DiaryDetails = (resolve) => {
+  import('@/components/DiaryDetails').then((module) => {
     resolve(module)
   })
 }
@@ -27,25 +27,13 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/diary',
+      path: '/diary/:id',
       name: 'Diary',
-      component: Diary,
-      children: [
-        {
-          path: '/diary/list',
-          name: 'DiaryList',
-          component: DiaryList
-        },
-        {
-          path: '/diary/detail',
-          name: 'DiaryDetail',
-          component: DiaryDetail
-        }
-      ]
+      component: Diary
     },
     {
-      path: '/diaryDetails',
-      name: 'DiaryDetails',
+      path: '/detail/:id',
+      name: 'DiaryDetail',
       component: DiaryDetails
     },
     {

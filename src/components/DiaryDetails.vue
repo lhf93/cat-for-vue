@@ -1,11 +1,7 @@
 <!--  -->
 <template>
   <div class="diaryDetails">
-    <div class="tit">
-      <img src="../assets/icon-f.png" alt="">
-      <span class="contTit">标题：xxxxxxxxxxx</span>
-      <div class="time">2018年7月12日 11：53</div>
-    </div>
+    <CTitle text="aaaabbbbbcccc"></CTitle>
     <div class="cont">
       <p>"But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment </p>
       <img class="bigImg" :src="imgSrc" alt="">
@@ -31,6 +27,7 @@
 <script>
 import { Comment, CommentItem } from '../base/Comment'
 import Button from 'components/BaseButton'
+import CTitle from '../base/Title/Title'
 import Location from '../base/Location/Location'
 
 export default {
@@ -71,7 +68,8 @@ export default {
     Button,
     Comment,
     CommentItem,
-    Location
+    Location,
+    CTitle
   },
 
   methods: {
@@ -91,9 +89,9 @@ export default {
 </script>
 <style scoped>
 .diaryDetails {
+  margin: 50px auto;
   width: 1000px;
   height: auto;
-  margin: 0 auto;
 }
 .tit {
   font-size: 20px;
