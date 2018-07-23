@@ -1,7 +1,7 @@
 <!-- 评论 -->
 <template>
   <div class="comment-view">
-    <div class="avatar-wrapper">
+    <div class="avatar-wrapper" v-if="mode !== 'reply'">
       <img :src="avatar" alt="XX的头像">
     </div>
     <div class="commet-wrapper">
@@ -28,7 +28,9 @@ export default {
     avatar: {
       type: String,
       default: require('../../../build/logo.png')
-    }
+    },
+
+    mode: String
   },
 
   data () {
