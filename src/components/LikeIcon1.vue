@@ -1,28 +1,29 @@
 <template>
-  <span
-    class="iconfont"
-    :class="isLike?'icon-like':'icon-like_fill'"
-    @click="changeLikeState">
-  </span>
+  <div>
+    <span
+      class="iconfont"
+      :class="isLike?'icon-like':'icon-like_fill'"
+      @click="changeLikeState">
+    </span>
+    <i>{{count}}</i>
+  </div>
 </template>
 <script>
 export default {
   name: 'LikeIcon',
   props: {
+    isLike: {
+      type: Boolean,
+      default: false
+    },
     count: {
       type: Number,
       default: 0
     }
   },
-  data () {
-    return {
-      isLike: 'true'
-    }
-  },
   methods: {
     changeLikeState () {
-      this.isLike = !this.isLike
-      this.$emit('change', this.isLike)
+      this.$emit('change')
     }
   }
 }

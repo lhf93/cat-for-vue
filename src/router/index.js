@@ -6,11 +6,11 @@ import Diary from '@/components/Diary'
 // import Publish from '@/components/Publish'
 import Publish from '@/components/Publish'
 
-// const DiaryList = (resolve) => {
-//   import('@/components/DiaryList').then((module) => {
-//     resolve(module)
-//   })
-// }
+const DiaryList = (resolve) => {
+  import('@/components/DiaryList').then((module) => {
+    resolve(module)
+  })
+}
 
 const DiaryDetails = (resolve) => {
   import('@/components/DiaryDetails').then((module) => {
@@ -27,18 +27,22 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/diary/:id',
+      path: '/diary',
       name: 'Diary',
       component: Diary,
       children: [
         {
-          path: '/diary/:id/detail/:id',
+          path: '/diary/list/:id',
+          name: 'DiaryList',
+          component: DiaryList
+        },
+        {
+          path: '/diary/detail/:id',
           name: 'DiaryDetail',
           component: DiaryDetails
         }
       ]
     },
-
     {
       path: '/publish',
       name: 'Publish',

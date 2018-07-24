@@ -3,7 +3,7 @@
   <div class="diaryDetails">
     <CTitle text="aaaabbbbbcccc"></CTitle>
     <div class="cont">
-      <p>"But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment </p>
+      <p class="article">"But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment "But consider your daughters. Only think what an establishment </p>
       <img class="bigImg" :src="imgSrc" alt="">
       <div class="smallImgBox">
         <div class="img-list">
@@ -14,6 +14,11 @@
          <Location></Location>
       </div>
       <Button :small="true" :hollow="true" text="申请当它的主人" class="button"></Button>
+      <p class="icon-group">
+        <CollectionIcon class="collection icon"></CollectionIcon>12
+        <LikeIcon class="icon"></LikeIcon>45
+        <CommentIcon class="icon"></CommentIcon>90
+      </p>
     </div>
     <div class="comment-wrapper">
       <Comment @commentSubmit="getComment"></Comment>
@@ -29,6 +34,10 @@ import { Comment, CommentItem } from '../base/Comment'
 import Button from 'components/BaseButton'
 import CTitle from '../base/Title/Title'
 import Location from '../base/Location/Location'
+import LikeIcon from './LikeIcon'
+import CommentIcon from './CommentIcon'
+// import ShowPic from './ShowPic'
+import CollectionIcon from './CollectionIcon'
 
 export default {
   data () {
@@ -69,7 +78,10 @@ export default {
     Comment,
     CommentItem,
     Location,
-    CTitle
+    CTitle,
+    LikeIcon,
+    CommentIcon,
+    CollectionIcon
   },
 
   methods: {
@@ -104,11 +116,23 @@ export default {
   color: #919191;
   line-height: 24px;
 }
-.cont > p {
+.cont > .article {
   text-indent: 28px;
   font-size: 14px;
   line-height: 22px;
   margin-top: 32px;
+}
+.cont .icon-group {
+  display: flex;
+  justify-content: flex-end;
+  color: #ccc;
+}
+.cont .icon-group .icon {
+  margin-left: 10px
+}
+.cont .icon-group .collection {
+  font-size: 20px;
+  color: #ccc;
 }
 .cont .button {
   margin: auto;

@@ -7,7 +7,7 @@
         <TabItem name="2" label="为喵星人寻找主人">
         </TabItem>
       </Tab>
-      <DiaryList ></DiaryList>
+      <!-- <DiaryList ></DiaryList> -->
       <router-view></router-view>
   </div>
 </template>
@@ -15,15 +15,11 @@
 <script>
 import Tab from '../base/Tab/Tab'
 import TabItem from '../base/Tab/TabItem'
-import DiaryList from './DiaryList'
-import LikeIcon from './LikeIcon'
-import CommentIcon from './CommentIcon'
-import ShowPic from './ShowPic'
 
 export default {
   data () {
     return {
-      activeKey: this.$route.params.id,
+      activeKey: '1',
       isCollect: 'true',
       collectNum: 53,
       likeNum: 53,
@@ -32,25 +28,21 @@ export default {
   },
 
   components: {
-    DiaryList,
     Tab,
-    TabItem,
-    LikeIcon,
-    CommentIcon,
-    ShowPic
+    TabItem
   },
   methods: {
     tabChanged (key) {
       if (+key === 1) {
-        this.$router.push({
-          name: 'Diary',
+        this.$router.replace({
+          name: 'DiaryList',
           params: {
             id: 1
           }
         })
       } else {
-        this.$router.push({
-          name: 'Diary',
+        this.$router.replace({
+          name: 'DiaryList',
           params: {
             id: 2
           }
